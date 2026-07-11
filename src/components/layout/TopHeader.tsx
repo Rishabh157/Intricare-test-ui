@@ -41,11 +41,11 @@ export default function TopHeader({
             <span key={item.label} className="flex items-center gap-1.5">
               <img src={ChevronRight} alt="icon" className="h-3.5 w-3.5" />
               {item.href ? (
-                <Link to={item.href} className="text-[#4f6ef7] hover:underline">
+                <Link to={item.href} className="text-[#3666EE] hover:underline">
                   {item.label}
                 </Link>
               ) : (
-                <span className="text-[#64748b]">{item.label}</span>
+                <span className="text-[#334155]">{item.label}</span>
               )}
             </span>
           ))}
