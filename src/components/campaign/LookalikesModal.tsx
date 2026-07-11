@@ -92,7 +92,7 @@ export default function LookalikesModal({
     >
       {lists.length === 0 ? (
         <div className="py-8 text-center">
-          <p className="text-base font-semibold text-[#1e293b]">You don&apos;t have any leads</p>
+          <p className="text-2xl font-semibold text-[#5E5873]">You don&apos;t have any leads</p>
           <p className="mt-1 text-sm text-[#64748b]">
             Create a lead list to start running campaigns
           </p>

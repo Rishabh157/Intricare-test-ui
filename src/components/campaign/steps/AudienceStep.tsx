@@ -73,7 +73,7 @@ export default function AudienceStep({ onNext }: AudienceStepProps) {
               <button
                 type="button"
                 onClick={() => setLookalikeModalOpen(true)}
-                className="ml-1 text-[#4f6ef7] hover:underline"
+                className="ml-1 text-[#4f6ef7] hover:underline cursor-pointer"
               >
                 Open Lookalikes
               </button>

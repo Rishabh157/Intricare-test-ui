@@ -44,7 +44,7 @@ export default function CampaignAccordion({
   return (
     <div className="relative flex gap-4">
       {/* Timeline rail */}
-      <div className="relative flex w-6 shrink-0 flex-col items-center pt-4">
+      <div className="relative flex w-6 shrink-0 flex-col items-center pt-4`">
         <StatusIndicator status={status} />
         {!isLast && (
           <div
