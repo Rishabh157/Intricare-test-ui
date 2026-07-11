@@ -1,3 +1,4 @@
+
 export type CampaignStatus = "Running" | "Paused" | "Draft";
 
 export interface Campaign {

@@ -1,146 +1,183 @@
-import { useEffect, useRef, useState } from "react";
-import { Copy, ExternalLink, MoreVertical, Pencil } from "lucide-react";
-import { Link } from "react-router-dom";
-import { ChannelBadge, StatusBadge } from "./CampaignBadges";
-import type { Campaign } from "../../types/campaign";
+import { useEffect, useRef, useState } from "react"
+import { MoreVertical } from "lucide-react"
+import { Link } from "react-router-dom"
+import { ChannelBadge, StatusBadge } from "./CampaignBadges"
+import type { Campaign } from "../../types/campaign"
+import TableAvatar from "../../assets/table-avatar.png"
+import TableIcon from "../../assets/table-icon.svg"
+import AnalyticsIcon from "../../assets/analytics-01.svg"
+import CellsIcon from "../../assets/cells.svg"
+import DuplicateIcon from "../../assets/duplicate.svg"
 
 interface CampaignRowMenuProps {
-  campaignSlug: string;
-  onClose: () => void;
-}
+  campaignSlug: string
+  onClose: () => void
+}``
 
 function CampaignRowMenu({ campaignSlug, onClose }: CampaignRowMenuProps) {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (ref.current && !ref.current.contains(e.target as Node)) onClose();
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, [onClose]);
+      if (ref.current && !ref.current.contains(e.target as Node)) onClose()
+    }
+    document.addEventListener("mousedown", handler)
+    return () => document.removeEventListener("mousedown", handler)
+  }, [onClose])
 
   return (
     <div
       ref={ref}
-      className="absolute right-0 top-8 z-20 w-44 rounded-xl border border-[#e8ecf4] bg-white py-1 shadow-lg"
+      className="absolute right-0 top-8 z-20 w-48 rounded-xl border border-[#e8ecf4] bg-white py-1.5 shadow-lg"
     >
       <Link
         to={`/campaign/${campaignSlug}`}
-        className="flex items-center gap-2 px-4 py-2.5 text-sm text-[#334155] hover:bg-[#f8fafc]"
+        className="flex items-center cursor-pointer gap-2.5 px-4 py-2.5 text-sm text-[#6D6B77] hover:bg-[#f8fafc]"
         onClick={onClose}
       >
-        <ExternalLink className="h-4 w-4 text-[#64748b]" />
+        <img src={AnalyticsIcon} alt="btn" className="h-4 w-4 text-[#6E6B7B]" />
         View Analytics
       </Link>
       <button
         type="button"
-        className="flex w-full items-center gap-2 px-4 py-2.5 text-sm text-[#334155] hover:bg-[#f8fafc]"
+        className="flex w-full items-center cursor-pointer gap-2.5 px-4 py-2.5 text-sm text-[#6D6B77] hover:bg-[#f8fafc]"
       >
-        <Pencil className="h-4 w-4 text-[#64748b]" />
+        <img src={CellsIcon} className="h-4 w-4 text-[#6E6B7B]" />
         Edit Sequence
       </button>
       <button
         type="button"
-        className="flex w-full items-center gap-2 px-4 py-2.5 text-sm text-[#334155] hover:bg-[#f8fafc]"
+        className="flex w-full items-center cursor-pointer gap-2.5 px-4 py-2.5 text-sm text-[#6D6B77] hover:bg-[#f8fafc]"
       >
-        <Copy className="h-4 w-4 text-[#64748b]" />
+        <img src={DuplicateIcon} className="h-4 w-4 text-[#6E6B7B]" />
         Duplicate
       </button>
     </div>
-  );
+  )
 }
 
 interface CampaignTableRowProps {
-  campaign: Campaign;
+  campaign: Campaign
 }
 
 export default function CampaignTableRow({ campaign }: CampaignTableRowProps) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <tr className="border-b border-[#f1f5f9] hover:bg-[#fafbfc]">
-      <td className="px-4 py-4">
-        <input type="checkbox" className="rounded border-[#cbd5e1]" />
+    <tr className="border-b border-[#EBE9F1] hover:bg-[#fafbfc]">
+      <td className="px-4 py-4 align-middle">
+        <input
+          type="checkbox"
+          className="h-4 w-4 rounded border-[#D8D6DE] accent-[#3762EE]"
+        />
       </td>
-      <td className="px-4 py-4">
-        <Link to={`/campaign/${campaign.slug}`} className="group">
-          <p className="font-semibold text-[#1e293b] group-hover:text-[#4f6ef7]">
-            {campaign.name}
-          </p>
-          <div className="mt-1 flex flex-wrap gap-1">
+
+      <td className="px-4 py-4 align-middle">
+        <Link
+          to={`/campaign/${campaign.slug}`}
+          className="group block min-w-[200px]"
+        >
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-sm font-semibold text-[#6D6B77] group-hover:text-[#3762EE]">
+              {campaign.name}
+            </span>
             {campaign.channels.map((ch) => (
               <ChannelBadge key={ch} label={ch} />
             ))}
           </div>
-          <p className="mt-1 text-xs text-[#94a3b8]">Created On: {campaign.createdOn}</p>
+          <p className="mt-1 text-xs text-[#6D6B77]">
+            Created On: {campaign.createdOn}
+          </p>
         </Link>
       </td>
-      <td className="px-4 py-4">
+
+      <td className="px-4 py-4 align-middle">
         {campaign.crmSynced ? (
-          <div className="flex items-center gap-2">
-            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[#ffedd5] text-xs text-[#ea580c]">
-              C
-            </span>
+          <div className="flex gap-2">
             <div>
-              <p className="text-xs font-medium text-[#334155]">Synced</p>
-              <p className="text-xs text-[#94a3b8]">{campaign.crmSyncedAgo}</p>
+              <div className="flex gap-x-1">
+                <img src={TableIcon} alt="btn" className="h-4 w-4" />
+                <p className="text-sm font-semibold text-[#6D6B77]">Synced</p>
+              </div>
+              <p className="text-xs text-[#6D6B77]">{campaign.crmSyncedAgo}</p>
             </div>
           </div>
         ) : (
           <button
             type="button"
-            className="rounded-lg border border-[#e2e8f0] px-3 py-1.5 text-xs font-medium text-[#475569] hover:bg-[#f8fafc]"
+            className="rounded-md border border-[#EBE9F1] bg-white px-3 py-1.5 text-xs font-medium text-[#6D6B77] hover:bg-[#f8fafc]"
           >
             Sync to CRM
           </button>
         )}
       </td>
-      <td className="px-4 py-4">
-        <p className="text-lg font-semibold text-[#1e293b]">{campaign.invitesSent}</p>
-        <p className="text-xs text-[#94a3b8]">{campaign.invitesAcceptedPct}% Accepted</p>
+
+      <td className="px-4 py-4 align-middle">
+        <p className="text-base font-semibold text-[#5E5873]">
+          {campaign.invitesSent}
+        </p>
+        <p className="text-xs text-[#6D6B77]">
+          {campaign.invitesAcceptedPct}% Accepted
+        </p>
       </td>
-      <td className="px-4 py-4">
-        <p className="text-lg font-semibold text-[#1e293b]">{campaign.replyRate}</p>
-        <p className="text-xs text-[#94a3b8]">{campaign.replyReceivedPct}% Received</p>
+
+      <td className="px-4 py-4 align-middle">
+        <p className="text-base font-semibold text-[#5E5873]">
+          {campaign.replyRate}
+        </p>
+        <p className="text-xs text-[#6D6B77]">
+          {campaign.replyReceivedPct}% Received
+        </p>
       </td>
-      <td className="px-4 py-4">
-        <p className="text-lg font-semibold text-[#1e293b]">{campaign.emailSent}</p>
-        <p className="text-xs text-[#94a3b8]">{campaign.emailOpenedPct}% Mail Opened</p>
+
+      <td className="px-4 py-4 align-middle">
+        <p className="text-base font-semibold text-[#5E5873]">
+          {campaign.emailSent}
+        </p>
+        <p className="text-xs text-[#6D6B77]">
+          {campaign.emailOpenedPct}% Mail Opened
+        </p>
       </td>
-      <td className="px-4 py-4">
+
+      <td className="px-4 py-4 align-middle">
         <div className="flex -space-x-2">
-          {campaign.senders.map((s, i) => (
-            <div
-              key={s}
-              className="flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-gradient-to-br from-[#c4b5fd] to-[#93c5fd] text-[10px] font-semibold text-white"
+          {campaign.senders.slice(0, 2).map((s, i) => (
+            <img
+              key={`${s}-${i}`}
+              src={TableAvatar}
+              alt={s}
+              className="h-8 w-8 rounded-full border-2 border-white object-cover"
               style={{ zIndex: campaign.senders.length - i }}
-            >
-              {s}
-            </div>
+            />
           ))}
         </div>
       </td>
-      <td className="px-4 py-4">
+
+      <td className="px-4 py-4 align-middle">
         <StatusBadge status={campaign.status} />
       </td>
-      <td className="px-4 py-4">
-        <span className="rounded-full bg-[#f1f5f9] px-3 py-1 text-xs text-[#64748b]">
+
+      <td className="px-4 py-4 align-middle">
+        <span className="inline-flex rounded-md border border-[#EBE9F1] bg-white px-3 py-1.5 text-xs font-medium text-[#6D6B77]">
           {campaign.dailyLimit}
         </span>
       </td>
-      <td className="relative px-4 py-4">
+
+      <td className="relative px-4 py-4 align-middle">
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
-          className="rounded-md p-1.5 text-[#94a3b8] hover:bg-[#f1f5f9] hover:text-[#64748b]"
+          className="rounded-md p-1.5 text-[#B9B9C3] hover:bg-[#f1f5f9] hover:text-[#6E6B7B]"
         >
           <MoreVertical className="h-4 w-4" />
         </button>
         {menuOpen && (
-          <CampaignRowMenu campaignSlug={campaign.slug} onClose={() => setMenuOpen(false)} />
+          <CampaignRowMenu
+            campaignSlug={campaign.slug}
+            onClose={() => setMenuOpen(false)}
+          />
         )}
       </td>
     </tr>
-  );
+  )
 }
