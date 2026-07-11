@@ -1,9 +1,10 @@
+import Avatar from "../../assets/avatar.png"
 interface UserAvatarProps {
   name: string;
   size?: "sm" | "md" | "lg";
   showStatus?: boolean;
 }
-
+  
 const sizeMap = {
   sm: "h-8 w-8 text-xs",
   md: "h-10 w-10 text-sm",
@@ -45,7 +46,8 @@ export function UserInfo({ name, role, avatarSize = "sm", showStatus }: UserInfo
         <p className="text-sm font-medium text-[#1e293b]">{name}</p>
         <p className="text-xs text-[#64748b]">{role}</p>
       </div>
-      <UserAvatar name={name} size={avatarSize} showStatus={showStatus} />
+      <img src={Avatar} alt="icon" />
+      {/* <UserAvatar name={name} size={avatarSize} showStatus={showStatus} /> */}
     </div>
   );
 }

@@ -23,7 +23,7 @@ export default function Button({
   return (
     <button
       type="button"
-      className={`inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-medium transition ${variantStyles[variant]} ${className}`}
+      className={`inline-flex cursor-pointer items-center justify-center rounded-lg px-5 py-2.5 text-sm font-medium transition ${variantStyles[variant]} ${className}`}
       {...props}
     >
       {children}

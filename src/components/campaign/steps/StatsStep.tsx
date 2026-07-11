@@ -1,6 +1,7 @@
 import { Rocket } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../ui/Button";
+import { useCampaigns } from "../../../context/CampaignsContext";
 
 function StatsIllustration() {
   return (
@@ -23,6 +24,12 @@ function StatsIllustration() {
 
 export default function StatsStep() {
   const navigate = useNavigate();
+  const { launchCampaigns } = useCampaigns();
+
+  const handleLaunch = () => {
+    launchCampaigns();
+    navigate("/campaign");
+  };
 
   return (
     <div className="flex flex-col items-center justify-center rounded-xl border border-[#e8ecf4] bg-white py-16 px-4">
@@ -31,7 +38,7 @@ export default function StatsStep() {
       <p className="mt-2 max-w-sm text-center text-sm text-[#64748b]">
         Once Campaign is launched, Statistics will be shown here.
       </p>
-      <Button onClick={() => navigate("/campaign/tech-founder")} className="mt-8 gap-2">
+      <Button onClick={handleLaunch} className="mt-8 gap-2">
         <Rocket className="h-4 w-4" />
         Launch Campaign
       </Button>

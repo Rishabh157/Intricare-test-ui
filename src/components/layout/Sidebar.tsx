@@ -4,6 +4,8 @@ import type { ThemeMode } from "../../types";
 import { useSidebar } from "./SidebarContext";
 import SidebarNavItem from "./SidebarNavItem";
 import SidebarUserCard, { ThemeToggle } from "./SidebarUserCard";
+import LogoImg from "../../assets/Isolation_Mode.svg"
+import PanelOpen from "../../assets/panel-right-close.svg"
 
 const USER = {
   name: "John Doe",
@@ -30,14 +32,12 @@ export default function Sidebar({ onClose }: SidebarProps) {
           collapsed ? "flex-col gap-3" : "justify-between px-1"
         }`}
       >
-        <div className={`flex items-center ${collapsed ? "justify-center" : "gap-2.5"}`}>
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#4f6ef7] to-[#8b5cf6]">
-            <svg viewBox="0 0 24 24" className="h-5 w-5 text-white" fill="currentColor">
-              <path d="M12 2L2 7l10 5 10-5-10-5zm0 8L2 5v12l10 5 10-5V5l-10 5z" />
-            </svg>
+        <div className={`flex items-center ${collapsed ? "justify-center" : "gap-1"}`}>
+          <div className="flex cursor-pointer h-9 w-9 shrink-0 items-center justify-center rounded-lg">
+            <img src={LogoImg} alt="icon" />
           </div>
           {!collapsed && (
-            <span className="text-sm font-bold text-[#1e293b]">Frontend Task</span>
+            <span className="text-sm font-bold text-[#00002B]">Frontend Task</span>
           )}
         </div>
 
@@ -45,13 +45,13 @@ export default function Sidebar({ onClose }: SidebarProps) {
           <button
             type="button"
             onClick={toggleCollapsed}
-            className="hidden rounded-md p-1.5 text-[#94a3b8] transition hover:bg-[#f1f5f9] hover:text-[#64748b] lg:block"
+            className="hidden rounded-md p-1.5 cursor-pointer text-[#94a3b8] transition hover:bg-[#f1f5f9] hover:text-[#64748b] lg:block"
             aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
           >
             {collapsed ? (
-              <PanelLeftOpen className="h-4 w-4" />
+              <img src={PanelOpen} alt="icon" className="h-4 w-4 "/>
             ) : (
-              <PanelLeftClose className="h-4 w-4" />
+              <img src={PanelOpen} alt="icon" className="h-4 w-4 rotate-180"/>
             )}
           </button>
 
