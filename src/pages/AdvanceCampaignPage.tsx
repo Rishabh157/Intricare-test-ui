@@ -43,9 +43,9 @@ export default function AdvanceCampaignPage() {
         { label: "Advance Campaign" },
       ]}
     >
-      <div className="space-y-6 p-4 sm:p-6">
+      <div className="flex w-full flex-col gap-6 p-4 sm:p-6">
         <CampaignStepper steps={campaignSteps} activeStep={currentStep} />
-        {renderStep()}
+        <div className="w-full shrink-0">{renderStep()}</div>
       </div>
     </DashboardLayout>
   );

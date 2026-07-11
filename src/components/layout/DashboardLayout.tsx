@@ -46,7 +46,9 @@ export default function DashboardLayout({
           rightContent={headerRight}
           onMenuClick={() => setMobileOpen(true)}
         />
-        <main className="min-h-0 flex-1 overflow-y-auto">{children}</main>
+        <main className="min-h-0 flex-1 overflow-y-auto">
+          <div className="min-h-0 w-full">{children}</div>
+        </main>
       </div>
     </div>
   );

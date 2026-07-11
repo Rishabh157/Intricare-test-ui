@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import { ArrowLeft } from "lucide-react";
 import Button from "../ui/Button";
 
@@ -7,6 +8,7 @@ interface WizardFooterProps {
   onNext?: () => void;
   nextLabel?: string;
   nextOnly?: boolean;
+  leftContent?: ReactNode;
 }
 
 export default function WizardFooter({
@@ -15,24 +17,42 @@ export default function WizardFooter({
   onNext,
   nextLabel = "Next",
   nextOnly = false,
+  leftContent,
 }: WizardFooterProps) {
   return (
-    <div className={`flex items-center gap-3 ${nextOnly ? "justify-end" : "justify-between"}`}>
-      {showPrevious && onPrevious && (
-        <button
-          type="button"
-          onClick={onPrevious}
-          className="flex items-center gap-1.5 text-sm font-medium text-[#64748b] transition hover:text-[#334155]"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Previous
-        </button>
+    <div
+      className={`flex flex-wrap items-center gap-3 ${
+        nextOnly && !leftContent ? "justify-end" : "justify-between"
+      }`}
+    >
+      {leftContent ?? (
+        showPrevious && onPrevious ? (
+          <button
+            type="button"
+            onClick={onPrevious}
+            className="flex items-center gap-1.5 text-sm font-medium text-[#3762EE] transition hover:text-[#2b4fd4]"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Previous
+          </button>
+        ) : (
+          <span />
+        )
       )}
-      {onNext && (
-        <Button onClick={onNext} className={showPrevious ? "" : "ml-auto"}>
-          {nextLabel}
-        </Button>
-      )}
+
+      <div className="ml-auto flex items-center gap-3">
+        {leftContent && showPrevious && onPrevious && (
+          <button
+            type="button"
+            onClick={onPrevious}
+            className="flex items-center gap-1.5 text-sm font-medium text-[#3762EE] transition hover:text-[#2b4fd4]"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Previous
+          </button>
+        )}
+        {onNext && <Button onClick={onNext}>{nextLabel}</Button>}
+      </div>
     </div>
   );
 }
