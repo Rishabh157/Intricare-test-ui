@@ -40,7 +40,7 @@ export default function WizardFooter({
         )
       )}
 
-      <div className="ml-auto flex items-center gap-3">
+      <div className="ml-auto flex items-center gap-3 mt-4">
         {leftContent && showPrevious && onPrevious && (
           <button
             type="button"

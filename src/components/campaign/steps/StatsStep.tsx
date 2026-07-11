@@ -2,6 +2,7 @@ import { Rocket } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Button from "../../ui/Button";
 import { useCampaigns } from "../../../context/CampaignsContext";
+import RocketIcon from "../../../assets/rocket.svg"
 
 function StatsIllustration() {
   return (
@@ -34,12 +35,12 @@ export default function StatsStep() {
   return (
     <div className="flex flex-col items-center justify-center rounded-xl border border-[#e8ecf4] bg-white py-16 px-4">
       <StatsIllustration />
-      <h3 className="mt-6 text-lg font-semibold text-[#1e293b]">No Stats Yet</h3>
-      <p className="mt-2 max-w-sm text-center text-sm text-[#64748b]">
+      <h3 className="mt-6 text-xl font-semibold text-[#5E5873]">No Stats Yet</h3>
+      <p className="mt-2 max-w-sm text-center text-xs text-[#5E5873]">
         Once Campaign is launched, Statistics will be shown here.
       </p>
-      <Button onClick={handleLaunch} className="mt-8 gap-2">
-        <Rocket className="h-4 w-4" />
+      <Button onClick={handleLaunch} className="mt-8 gap-2 bg-[#3664EE]!">
+      <img src={RocketIcon} alt="btn" className="h-4 w-4" />
         Launch Campaign
       </Button>
     </div>

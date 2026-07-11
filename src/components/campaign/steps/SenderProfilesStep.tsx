@@ -98,7 +98,7 @@ export default function SenderProfilesStep({
   const [pageSize, setPageSize] = useState("10")
 
   return (
-    <div className="space-y-5">
+    <div className="flex w-full flex-col gap-4">
       {/* Tabs */}
       <div className="inline-flex overflow-hidden rounded-lg border border-[#3762EE]">
         <button
@@ -256,8 +256,8 @@ export default function SenderProfilesStep({
         </div>
       </div>
 
-      {/* Footer */}
-      <div className="flex items-center justify-end gap-4 pt-2">
+      {/* Footer — sits directly under the panel */}
+      <div className="flex shrink-0 items-center justify-end gap-4">
         <button
           type="button"
           onClick={onPrevious}
