@@ -15,7 +15,7 @@ interface CampaignAccordionProps {
 function StatusIndicator({ status }: { status: AccordionStatus }) {
   if (status === "complete") {
     return (
-      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#22c55e]">
+      <div className="relative z-10 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#28C76F]">
         <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
       </div>
     );
@@ -23,16 +23,12 @@ function StatusIndicator({ status }: { status: AccordionStatus }) {
 
   if (status === "active") {
     return (
-      <div className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-[#4f6ef7] bg-white">
-        <div className="h-2 w-2 rounded-full bg-[#4f6ef7]" />
-      </div>
+      <div className="relative z-10 h-6 w-6 shrink-0 rounded-full border-[2.5px] border-[#3762EE] bg-white" />
     );
   }
 
   return (
-    <div className="flex h-6 w-6 items-center justify-center rounded-full border-2 border-[#e2e8f0] bg-white">
-      <div className="h-2 w-2 rounded-full bg-[#e2e8f0]" />
-    </div>
+    <div className="relative z-10 h-6 w-6 shrink-0 rounded-full border-2 border-[#D8D6DE] bg-white" />
   );
 }
 
@@ -47,10 +43,14 @@ export default function CampaignAccordion({
 }: CampaignAccordionProps) {
   return (
     <div className="relative flex gap-4">
-      <div className="flex flex-col items-center pt-4">
+      {/* Timeline rail */}
+      <div className="relative flex w-6 shrink-0 flex-col items-center pt-4">
         <StatusIndicator status={status} />
         {!isLast && (
-          <div className="mt-1 w-px flex-1 bg-[#4f6ef7]/25" aria-hidden="true" />
+          <div
+            className="absolute top-[2.5rem] bottom-0 left-1/2 w-[2px] -translate-x-1/2 bg-[#D0D4E4]"
+            aria-hidden="true"
+          />
         )}
       </div>
 

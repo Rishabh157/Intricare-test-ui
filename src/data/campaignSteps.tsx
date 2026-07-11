@@ -1,14 +1,44 @@
-import { BarChart3, List, Settings, Users } from "lucide-react";
 import type { CampaignStepId } from "../types";
+import CheckListIcon from "../assets/check-list.svg";
+import UserIcon from "../assets/user-search-01.svg";
+import SettingIcon from "../assets/settings.svg";
+import StatsIcon from "../assets/dashboard-browsing.svg";
 
-export const campaignSteps = [
-  { id: "audience" as CampaignStepId, label: "Define Target Audience", icon: <List className="h-4 w-4" /> },
-  { id: "senders" as CampaignStepId, label: "Sender Profiles", icon: <Users className="h-4 w-4" /> },
-  { id: "settings" as CampaignStepId, label: "Settings", icon: <Settings className="h-4 w-4" /> },
-  { id: "stats" as CampaignStepId, label: "Stats", icon: <BarChart3 className="h-4 w-4" /> },
+export interface CampaignStepConfig {
+  id: CampaignStepId;
+  label: string;
+  iconSrc: string;
+}
+
+export const campaignSteps: CampaignStepConfig[] = [
+  {
+    id: "audience",
+    label: "Define Target Audience",
+    iconSrc: CheckListIcon,
+  },
+  {
+    id: "senders",
+    label: "Sender Profiles",
+    iconSrc: UserIcon,
+  },
+  {
+    id: "settings",
+    label: "Settings",
+    iconSrc: SettingIcon,
+  },
+  {
+    id: "stats",
+    label: "Stats",
+    iconSrc: StatsIcon,
+  },
 ];
 
-export const stepOrder: CampaignStepId[] = ["audience", "senders", "settings", "stats"];
+export const stepOrder: CampaignStepId[] = [
+  "audience",
+  "senders",
+  "settings",
+  "stats",
+];
 
 export function getNextStep(current: CampaignStepId): CampaignStepId | null {
   const idx = stepOrder.indexOf(current);
