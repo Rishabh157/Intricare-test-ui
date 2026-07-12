@@ -8,6 +8,7 @@ import TableIcon from "../../assets/table-icon.svg"
 import AnalyticsIcon from "../../assets/analytics-01.svg"
 import CellsIcon from "../../assets/cells.svg"
 import DuplicateIcon from "../../assets/duplicate.svg"
+import MenuIcon from "../../assets/menu-icon.svg"
 
 interface CampaignRowMenuProps {
   campaignSlug: string
@@ -163,13 +164,13 @@ export default function CampaignTableRow({ campaign }: CampaignTableRowProps) {
         </span>
       </td>
 
-      <td className="relative px-4 py-4 align-middle">
+      <td className="relative px-2 py-2 align-middle">
         <button
           type="button"
           onClick={() => setMenuOpen((v) => !v)}
-          className="rounded-md p-1.5 text-[#B9B9C3] hover:bg-[#f1f5f9] hover:text-[#6E6B7B]"
+          className="rounded-md cursor-pointer text-[#B9B9C3] hover:bg-[#f1f5f9] hover:text-[#6E6B7B]"
         >
-          <MoreVertical className="h-4 w-4" />
+          <img src={MenuIcon} alt="btn" className="" />
         </button>
         {menuOpen && (
           <CampaignRowMenu
