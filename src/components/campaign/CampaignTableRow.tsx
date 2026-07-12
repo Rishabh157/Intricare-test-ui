@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react"
-import { MoreVertical } from "lucide-react"
 import { Link } from "react-router-dom"
 import { ChannelBadge, StatusBadge } from "./CampaignBadges"
 import type { Campaign } from "../../types/campaign"

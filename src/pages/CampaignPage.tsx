@@ -8,7 +8,7 @@ import Button from "../components/ui/Button";
 import SearchInput from "../components/ui/SearchInput";
 import Select from "../components/ui/Select";
 import { useCampaigns } from "../context/CampaignsContext";
-import ExportIcon from "../assets/export.svg"
+import ExportIcon from "../assets/export.svg";
 
 export default function CampaignPage() {
   const { campaigns, hasCampaigns } = useCampaigns();
