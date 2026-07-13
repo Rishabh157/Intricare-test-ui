@@ -359,11 +359,11 @@ export const campaigns: Campaign[] = [
 ]
 
 export const overviewMetrics: OverviewMetric[] = [
-  { label: "New Leads", value: 1628, color: "#4f6ef7" },
-  { label: "Invites Sent", value: 988, pct: 61, color: "#60a5fa" },
-  { label: "Invites Accepted", value: 507, pct: 49, color: "#38bdf8" },
-  { label: "Messages Sent", value: 460, pct: 91, color: "#4ade80" },
-  { label: "Replies", value: 202, pct: 44, color: "#86efac" },
+  { label: "New Leads", value: 1628, color: "#7367F0" },
+  { label: "Invites Sent", value: 988, pct: 61, color: "#8396C6" },
+  { label: "Invites Accepted", value: 507, pct: 49, color: "#7DD3D8" },
+  { label: "Messages Sent", value: 460, pct: 91, color: "#A8E6CF" },
+  { label: "Replies", value: 202, pct: 44, color: "#C8F0D8" },
 ]
 
 export const campaignActions = {
@@ -391,33 +391,33 @@ export const replyPerformance = [
 export const recentActivity: ActivityItem[] = [
   {
     id: "1",
-    time: "2h ago",
+    time: "09:14 AM",
     text: "Campaign started by Aman S.",
-    color: "#4f6ef7",
+    color: "#3762EE",
   },
   {
     id: "2",
-    time: "1h ago",
+    time: "10:30 AM",
     text: "Reply received from Suresh K.",
-    color: "#a855f7",
+    color: "#7367F0",
   },
   {
     id: "3",
-    time: "45m ago",
+    time: "10:35 AM",
     text: "Follow-up message sent by System",
-    color: "#ef4444",
+    color: "#EA5455",
   },
   {
     id: "4",
-    time: "30m ago",
+    time: "10:35 AM",
     text: "Connection accepted by Suresh K. (Prospect)",
-    color: "#94a3b8",
+    color: "#B9B9C3",
   },
   {
     id: "5",
-    time: "15m ago",
+    time: "10:45 AM",
     text: "Campaign paused by Aman S.",
-    color: "#f59e0b",
+    color: "#FF9F43",
   },
 ]
 

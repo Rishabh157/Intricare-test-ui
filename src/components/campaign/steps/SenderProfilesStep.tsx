@@ -100,29 +100,31 @@ export default function SenderProfilesStep({
   return (
     <div className="flex w-full flex-col gap-4">
       {/* Tabs */}
-      <div className="inline-flex overflow-hidden rounded-lg border border-[#3762EE]">
-        <button
-          type="button"
-          onClick={() => setActiveTab("linkedin")}
-          className={`px-5 py-2.5 text-sm font-medium transition ${
-            activeTab === "linkedin"
-              ? "bg-[#CFDAFE] text-[#3762EE]"
-              : "bg-white text-[#3762EE] hover:bg-[#F8FAFF]"
-          }`}
-        >
-          LinkedIn Profile
-        </button>
-        <button
-          type="button"
-          onClick={() => setActiveTab("email")}
-          className={`border-l border-[#3762EE] px-5 py-2.5 text-sm font-medium transition ${
-            activeTab === "email"
-              ? "bg-[#EEF2FF] text-[#3762EE]"
-              : "bg-white text-[#3762EE] hover:bg-[#F8FAFF]"
-          }`}
-        >
-          Email Accounts
-        </button>
+      <div>
+        <div className="inline-flex overflow-hidden rounded-lg border border-[#3762EE]">
+          <button
+            type="button"
+            onClick={() => setActiveTab("linkedin")}
+            className={`px-5 py-2.5 text-sm font-medium cursor-pointer transition ${
+              activeTab === "linkedin"
+                ? "bg-[#CFDAFE] text-[#3762EE]"
+                : "bg-white text-[#3762EE] hover:bg-[#F8FAFF]"
+            }`}
+          >
+            LinkedIn Profile
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab("email")}
+            className={`border-l border-[#3762EE] cursor-pointer px-5 py-2.5 text-sm font-medium transition ${
+              activeTab === "email"
+                ? "bg-[#EEF2FF] text-[#3762EE]"
+                : "bg-white text-[#3762EE] hover:bg-[#F8FAFF]"
+            }`}
+          >
+            Email Accounts
+          </button>
+        </div>
       </div>
 
       {/* Main panel */}

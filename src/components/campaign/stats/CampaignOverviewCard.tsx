@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Info } from "lucide-react";
 import { ChannelToggle } from "../CampaignBadges";
 import { overviewMetrics } from "../../../data/campaigns";
 
@@ -7,35 +8,47 @@ export default function CampaignOverviewCard() {
   const maxValue = Math.max(...overviewMetrics.map((m) => m.value));
 
   return (
-    <div className="rounded-xl border border-[#e8ecf4] bg-white p-5">
-      <div className="mb-5 flex items-center justify-between">
-        <h3 className="text-sm font-semibold text-[#1e293b]">Campaign Overview</h3>
+    <div className="rounded-xl border border-[#EBE9F1] bg-white p-5">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <h3 className="text-sm font-semibold text-[#5E5873]">Campaign Overview</h3>
         <ChannelToggle active={channel} onChange={setChannel} />
       </div>
 
-      <div className="space-y-4">
-        {overviewMetrics.map((metric) => (
-          <div key={metric.label}>
-            <div className="mb-1.5 flex items-center justify-between text-sm">
-              <span className="text-[#64748b]">{metric.label}</span>
-              <span className="font-semibold text-[#1e293b]">
+      <div className="flex items-end justify-between gap-2 sm:gap-4">
+        {overviewMetrics.map((metric) => {
+          const heightPct = Math.max(12, (metric.value / maxValue) * 100);
+
+          return (
+            <div
+              key={metric.label}
+              className="flex min-w-0 flex-1 flex-col items-center text-center"
+            >
+              <p className="text-sm font-semibold text-[#5E5873]">
                 {metric.value.toLocaleString()}
-                {metric.pct !== undefined && (
-                  <span className="ml-2 text-xs font-normal text-[#94a3b8]">{metric.pct}%</span>
-                )}
-              </span>
+              </p>
+              {metric.pct !== undefined && (
+                <p className="text-[11px] text-[#B9B9C3]">{metric.pct}%</p>
+              )}
+
+              <div className="mt-2 flex h-36 w-full items-end justify-center sm:h-44">
+                <div
+                  className="w-full max-w-[52px] rounded-t-md transition-all"
+                  style={{
+                    height: `${heightPct}%`,
+                    backgroundColor: metric.color,
+                  }}
+                />
+              </div>
+
+              <div className="mt-3 flex items-center justify-center gap-1">
+                <span className="text-[11px] leading-tight text-[#6E6B7B] sm:text-xs">
+                  {metric.label}
+                </span>
+                <Info className="hidden h-3 w-3 shrink-0 text-[#B9B9C3] sm:block" />
+              </div>
             </div>
-            <div className="h-2 overflow-hidden rounded-full bg-[#f1f5f9]">
-              <div
-                className="h-full rounded-full transition-all"
-                style={{
-                  width: `${(metric.value / maxValue) * 100}%`,
-                  backgroundColor: metric.color,
-                }}
-              />
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
