@@ -7,7 +7,7 @@ interface ChannelBadgeProps {
 
 export function ChannelBadge({ label }: ChannelBadgeProps) {
   return (
-    <span className="rounded px-2 py-0.5 text-[10px] font-medium leading-4 text-[#5269AB] bg-[#EDF2FC]">
+    <span className="rounded px-2 py-0.5 text-[10px] font-bold leading-4 text-[#5269AB] bg-[#EDF2FC]">
       {label}
     </span>
   );
@@ -53,14 +53,14 @@ interface ChannelToggleProps {
 
 export function ChannelToggle({ active, onChange }: ChannelToggleProps) {
   return (
-    <div className="flex rounded-md border border-[#EBE9F1] bg-[#F8F8F8] p-0.5">
+    <div className="inline-flex overflow-hidden rounded-md border border-[#EBE9F1]">
       <button
         type="button"
         onClick={() => onChange("linkedin")}
-        className={`rounded px-2.5 py-1 text-xs font-medium transition ${
+        className={`cursor-pointer px-3 py-1.5 text-xs font-bold transition ${
           active === "linkedin"
-            ? "bg-white text-[#3762EE] shadow-sm"
-            : "text-[#6E6B7B]"
+            ? "bg-[#F3F2F7] text-[#82868B]"
+            : "bg-white text-[#B9B9C3]"
         }`}
       >
         LinkedIn
@@ -68,10 +68,10 @@ export function ChannelToggle({ active, onChange }: ChannelToggleProps) {
       <button
         type="button"
         onClick={() => onChange("email")}
-        className={`rounded px-2.5 py-1 text-xs font-medium transition ${
+        className={`cursor-pointer border-l font-bold border-[#EBE9F1] px-3 py-1.5 text-xs transition ${
           active === "email"
-            ? "bg-white text-[#3762EE] shadow-sm"
-            : "text-[#6E6B7B]"
+            ? "bg-[#F3F2F7] text-[#5E5873]"
+            : "bg-white text-[#B9B9C3]"
         }`}
       >
         Email

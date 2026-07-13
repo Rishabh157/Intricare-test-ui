@@ -359,11 +359,11 @@ export const campaigns: Campaign[] = [
 ]
 
 export const overviewMetrics: OverviewMetric[] = [
-  { label: "New Leads", value: 1628, color: "#7367F0" },
-  { label: "Invites Sent", value: 988, pct: 61, color: "#8396C6" },
-  { label: "Invites Accepted", value: 507, pct: 49, color: "#7DD3D8" },
-  { label: "Messages Sent", value: 460, pct: 91, color: "#A8E6CF" },
-  { label: "Replies", value: 202, pct: 44, color: "#C8F0D8" },
+  { label: "New Leads", value: 1628, color: "#6B62E3" },
+  { label: "Invites Sent", value: 988, pct: 61, color: "#9EB7CF" },
+  { label: "Invites Accepted", value: 507, pct: 49, color: "#D5EFE7" },
+  { label: "Messages Sent", value: 460, pct: 91, color: "#E9F9D2" },
+  { label: "Replies", value: 202, pct: 44, color: "#DEF5D9" },
 ]
 
 export const campaignActions = {

@@ -3,8 +3,8 @@ import { replyPerformance } from "../../../data/campaigns";
 export default function ReplyPerformanceCard() {
   return (
     <div className="h-full rounded-xl border border-[#EBE9F1] bg-white p-5">
-      <h3 className="text-sm font-semibold text-[#5E5873]">Reply Performance</h3>
-      <p className="mb-5 text-xs text-[#B9B9C3]">Top reply channel</p>
+      <h3 className="text-sm font-bold text-[#444050]">Reply Performance</h3>
+      <p className="mb-5 text-xs text-[#9692A4] font-bold">Top reply channel</p>
 
       <div className="space-y-4">
         {replyPerformance.map((item) => (

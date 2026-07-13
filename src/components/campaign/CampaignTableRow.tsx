@@ -12,7 +12,7 @@ import MenuIcon from "../../assets/menu-icon.svg"
 interface CampaignRowMenuProps {
   campaignSlug: string
   onClose: () => void
-}``
+}
 
 function CampaignRowMenu({ campaignSlug, onClose }: CampaignRowMenuProps) {
   const ref = useRef<HTMLDivElement>(null)
@@ -58,17 +58,30 @@ function CampaignRowMenu({ campaignSlug, onClose }: CampaignRowMenuProps) {
 
 interface CampaignTableRowProps {
   campaign: Campaign
+  selected: boolean
+  onSelect: (id: string, checked: boolean) => void
 }
 
-export default function CampaignTableRow({ campaign }: CampaignTableRowProps) {
+export default function CampaignTableRow({
+  campaign,
+  selected,
+  onSelect,
+}: CampaignTableRowProps) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <tr className="border-b border-[#EBE9F1] hover:bg-[#fafbfc]">
+    <tr
+      className={`border-b border-[#EBE9F1] hover:bg-[#fafbfc] ${
+        selected ? "bg-[#F5F7FF]" : ""
+      }`}
+    >
       <td className="px-4 py-4 align-middle">
         <input
           type="checkbox"
-          className="h-4 w-4 rounded border-[#D8D6DE] accent-[#3762EE]"
+          checked={selected}
+          onChange={(e) => onSelect(campaign.id, e.target.checked)}
+          aria-label={`Select ${campaign.name}`}
+          className="h-4 w-4 cursor-pointer rounded border-[#D8D6DE] accent-[#3762EE]"
         />
       </td>
 
