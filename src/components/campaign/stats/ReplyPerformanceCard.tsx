@@ -10,7 +10,7 @@ export default function ReplyPerformanceCard() {
         {replyPerformance.map((item) => (
           <div key={item.label}>
             <div className="mb-1.5 flex items-center justify-between text-xs">
-              <span className="text-[#6E6B7B]">{item.label}</span>
+              <span className="text-[#6E6B7B] font-semibold">{item.label}</span>
               <span className="font-semibold text-[#5E5873]">{item.pct}%</span>
             </div>
             <div className="h-2 overflow-hidden rounded-full bg-[#F3F2F7]">

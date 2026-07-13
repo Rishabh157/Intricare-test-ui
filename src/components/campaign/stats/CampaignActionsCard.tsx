@@ -19,10 +19,10 @@ export default function CampaignActionsCard() {
       <div className="flex-1 p-5">
         <div className="mb-4 flex flex-wrap items-start justify-between gap-3">
           <div>
-            <h3 className="text-sm font-semibold text-[#5E5873]">
+            <h3 className="text-base font-semibold text-[#444050]">
               Campaign Actions
             </h3>
-            <p className="text-xs text-[#B9B9C3]">
+            <p className="text-xs text-[#9692A4] font-bold">
               Execution stats & engagement signals
             </p>
           </div>
@@ -36,7 +36,7 @@ export default function CampaignActionsCard() {
                 key={item.label}
                 className="flex items-center justify-between gap-2 text-sm"
               >
-                <span className="text-[#6E6B7B]">{item.label}</span>
+                <span className="text-[#444050] font-bold">{item.label}</span>
                 <span className="font-semibold text-[#5E5873]">
                   {item.value}
                 </span>
@@ -49,7 +49,7 @@ export default function CampaignActionsCard() {
                 key={item.label}
                 className="flex items-center justify-between gap-2 text-sm"
               >
-                <span className="text-[#6E6B7B]">{item.label}</span>
+                <span className="text-[#444050] font-bold">{item.label}</span>
                 <span className="font-semibold text-[#5E5873]">
                   {item.value}
                 </span>
